@@ -21,13 +21,10 @@ body {
 #your-books {
   background-color: paleturquoise;
   border-radius: 2em;
-  justify-content: space-between;
 }
 
-#your-books > span {
-  display: flex;
-  align-items: center;
-  gap: 1em;
+#sidebar > div > span:not([id="your-books-counter"]) {
+  flex: 1;
 }
 
 #sidebar > div {
@@ -38,7 +35,7 @@ body {
 }
 
 #sidebar > div:not([id="your-books"]) {
-  justify-content: space-between;
+  /* justify-content: space-between; */
   font-size: 1.2em;
 }
 
@@ -84,7 +81,7 @@ main {
   padding-inline-start: 0.5em;
 }
 
-#new-book {
+#new-book-button {
   padding-inline-start: 1em;
 }
 
@@ -93,12 +90,12 @@ main {
 #books {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1rem;
+  gap: 2rem;
   padding-block-start: 1em;
   padding-inline-end: 1em;
 }
 
-.book-card img{
+.book-front-cover img {
   width: 100%;
   border-radius: 0.5rem;
 }
@@ -106,4 +103,83 @@ main {
 .book-front-cover {
   display: flex;
   align-items: end;
+}
+
+.book-title {
+  display: flex;
+  padding-block-start: 0.5em;
+  padding-block-end: 0.2em;
+  align-items: start;
+}
+
+.book-title > span {
+  flex: 1;
+  max-height: 2.5em;
+  overflow: hidden;
+}
+
+.book-author {
+  color: gray;
+  font-size: 0.9em;
+}
+
+/* New book dialog */
+
+#new-book-dialog {
+  border: none;
+  border-radius: 0.5rem;
+}
+
+#new-book-dialog > div:first-child {
+}
+
+#new-book-dialog label {
+  display: block;
+  padding-block: 1em;
+}
+
+#new-book-dialog input {
+  outline: none;
+  border-radius: 0.5em;
+  padding: 1em;
+  border: none;
+  background-color: antiquewhite;
+}
+
+#new-book-dialog select {
+  border: none;
+  outline: none;
+  border-radius: 0.5em;
+  padding-block: 0.5em;
+  padding-inline: 1em;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+}
+
+#dialog-buttons {
+  padding-block-start: 1em;
+}
+
+button {
+  border: none;
+  outline: none;
+  border-radius: 0.5em;
+  padding-block: 1em;
+  padding-inline: 1.5em;
+}
+
+#dialog-cancel-button:hover {
+  background-color: #d0d0d7;
+}
+
+#dialog-confirm-button {
+  background-color: rgba(152, 251, 152, 0.5);
+}
+
+#dialog-confirm-button:hover {
+  background-color: palegreen;
 }

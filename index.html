@@ -13,16 +13,11 @@
 <body>
   <div id="sidebar">
     <div id="your-books">
-      <span>
-        <img src="icons/local_library_FILL0_wght400_GRAD0_opsz24.svg" alt="Library">
-        <span>Your books</span>
-      </span>
-      <span id="your-books-counter">34</span>
-    </div>
 
-    <div id="series">
-      <span>Series</span>
-      <img src="icons/expand_more_FILL0_wght400_GRAD0_opsz24.svg" alt="Expand more">
+      <img src="icons/local_library_FILL0_wght400_GRAD0_opsz24.svg" alt="Library">
+      <span style="padding-inline-start: 1em;">Your books</span>
+
+      <span id="your-books-counter"></span>
     </div>
 
     <div id="authors">
@@ -58,49 +53,67 @@
         <img src="icons/find_in_page_FILL0_wght400_GRAD0_opsz24.svg" alt="Find in page">
       </span>
 
-      <span id="new-book">
+      <span id="new-book-button">
         <img src="icons/add_FILL0_wght400_GRAD0_opsz24.svg" alt="Add">
         <span>New book</span>
       </span>
     </div>
 
     <div id="books">
-      <div class="book-card">
-        <div class="book-front-cover">
-          <img src="https://books.google.com/books/publisher/content/images/frontcover/16qXDwAAQBAJ?w=300&usc=0"
-            alt="86--EIGHTY-SIX, Vol. 2 (light novel)'s front cover">
-        </div>
-
-        <div class="book-title">
-          <span>86--EIGHTY-SIX, Vol. 2 (light novel)</span>
-        </div>
-
-        <div class="book-author">
-          <span>Asato Asato</span>
-        </div>
-
-
-      </div>
-
-
-      <div class="book-card">
-        <div class="book-front-cover">
-          <img src="https://books.google.com/books/publisher/content/images/frontcover/NYeFDwAAQBAJ?w=300&usc=0"
-            alt="86--EIGHTY-SIX, Vol. 1 (light novel)'s front cover">
-        </div>
-
-        <div class="book-title">
-          <span>86--EIGHTY-SIX, Vol. 1 (light novel)</span>
-        </div>
-
-        <div class="book-author">
-          <span>Asato Asato</span>
-        </div>
-
-
-      </div>
     </div>
   </main>
+
+  <dialog id="new-book-dialog">
+    <div>
+      Required fields marked with *
+    </div>
+
+    <form id="new-book-form">
+      <div>
+        <label for="new-book-title">Title *</label>
+        <input type="text" name="new-book-title" id="new-book-title" required>
+      </div>
+
+      <div>
+        <label for="new-book-author">Author *</label>
+        <input type="text" name="new-book-author" id="new-book-author" required>
+      </div>
+
+      <div>
+        <label for="new-book-pages">Pages *</label>
+        <input type="number" name="new-book-pages" id="new-book-pages" min="1" required>
+      </div>
+
+      <div>
+        <label for="new-book-front-cover">Front cover (URL) *</label>
+        <input type="url" name="new-book-front-cover" id="new-book-front-cover" required>
+      </div>
+
+      <div>
+        <label for="new-book-format">Format</label>
+
+        <select name="new-book-format" id="new-book-format">
+          <option>Ebooks</option>
+          <option>Comics</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="new-book-progress">Progress</label>
+
+        <select name="new-book-progress" id="new-book-progress">
+          <option>Not started</option>
+          <option>In progress</option>
+          <option>Finished</option>
+        </select>
+      </div>
+
+    </form>
+    <div id="dialog-buttons">
+      <button id="dialog-cancel-button">Cancel</button>
+      <button id="dialog-confirm-button">Confirm</button>
+    </div>
+  </dialog>
 </body>
 
 </html>
