@@ -127,6 +127,7 @@ main {
 
 #new-book-dialog {
   border: none;
+  padding: 2em;
   border-radius: 0.5rem;
 }
 

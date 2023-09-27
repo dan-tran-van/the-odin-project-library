@@ -64,6 +64,7 @@ function displayBooks() {
   yourBooks.forEach((book) => {
     const bookCard = document.createElement("div");
     bookCard.classList.add("book-card");
+    const bookIndex = yourBooks.indexOf(book);
 
     const bookFrontCover = document.createElement("div");
     bookFrontCover.classList.add("book-front-cover");
@@ -73,7 +74,7 @@ function displayBooks() {
     const bookTitle = document.createElement("div");
     bookTitle.classList.add("book-title");
 
-    bookTitle.innerHTML = `<span>${book.title}</span><img src="icons/more_vert_FILL0_wght400_GRAD0_opsz24.svg" alt="More">`;
+    bookTitle.innerHTML = `<span>${book.title}</span><img src="icons/delete_FILL0_wght400_GRAD0_opsz24.svg" alt="More" class='remove-book' data-book-index='${bookIndex}'>`;
 
     const bookAuthor = document.createElement("div");
     bookAuthor.classList.add("book-author");
@@ -125,9 +126,42 @@ dialogConfirmButton.addEventListener("click", (event) => {
     newBookDialog.close();
     displayBooks();
     yourBooksCounter.textContent = yourBooks.length;
+    resetRemoveBookButtons();
   }
 });
 
 displayBooks();
 
 yourBooksCounter.textContent = yourBooks.length;
+
+let removeBookButtons = document.querySelectorAll(".remove-book");
+
+function resetRemoveBookButtons() {
+  let removeBookButtons = document.querySelectorAll(".remove-book");
+
+  removeBookButtons.forEach((removeBookButton) => {
+    removeBookButton.addEventListener("click", () => {
+      const removeBookButtonIndex =
+        removeBookButton.getAttribute("data-book-index");
+      yourBooks.splice(removeBookButtonIndex, 1);
+
+      displayBooks();
+      yourBooksCounter.textContent = yourBooks.length;
+      resetRemoveBookButtons();
+    });
+  });
+}
+
+console.log(removeBookButtons);
+
+removeBookButtons.forEach((removeBookButton) => {
+  removeBookButton.addEventListener("click", () => {
+    const removeBookButtonIndex =
+      removeBookButton.getAttribute("data-book-index");
+    yourBooks.splice(removeBookButtonIndex, 1);
+
+    displayBooks();
+    yourBooksCounter.textContent = yourBooks.length;
+    resetRemoveBookButtons();
+  });
+});
