@@ -2,6 +2,7 @@ const yourBooks = [];
 
 let yourBooksCounter = document.querySelector("#your-books-counter");
 
+/*
 function Book(title, author, pages, frontCover, format, progress, addedTime) {
   this.title = title;
   this.author = author;
@@ -10,6 +11,27 @@ function Book(title, author, pages, frontCover, format, progress, addedTime) {
   this.format = format;
   this.progress = progress;
   this.addedTime = addedTime;
+}
+*/
+
+class Book {
+  title;
+  author;
+  pages;
+  frontCover;
+  format;
+  progress;
+  addedTime;
+
+  constructor(title, author, pages, frontCover, format, progress, addedTime) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.frontCover = frontCover;
+    this.format = format;
+    this.progress = progress;
+    this.addedTime = addedTime;
+  }
 }
 
 function addBookToLibrary(title, author, pages, frontCover, format, progress) {

@@ -125,7 +125,6 @@ main {
 
 .book-title > span {
   flex: 1;
-  /* max-height: 2.5em; */
   overflow: hidden;
 }
 
@@ -152,8 +151,7 @@ main {
   border-radius: 0.5rem;
 }
 
-#new-book-dialog > div:first-child {
-}
+
 
 #new-book-dialog label {
   display: block;
